@@ -21,6 +21,8 @@ h1 {
 
 article {
   display: flex;
+  justify-content: space-between;
+  border: thin black solid;
 }
 
 .top {

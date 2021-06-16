@@ -2,51 +2,61 @@
   {
     "id": 1,
     "name": "Katz",
-    "address": "2329 Eggendart Circle"
+    "address": "2329 Eggendart Circle",
+    "type": "Cafe"
   },
   {
     "id": 2,
     "name": "BlogXS",
-    "address": "4643 Autumn Leaf Center"
+    "address": "4643 Autumn Leaf Center",
+    "type": "Gas"
   },
   {
     "id": 3,
     "name": "Buzzbean",
-    "address": "66447 Randy Street"
+    "address": "66447 Randy Street",
+    "type": "Fast"
   },
   {
     "id": 4,
     "name": "Quatz",
-    "address": "5 Morning Center"
+    "address": "5 Morning Center",
+    "type": "Cafe"
   },
   {
     "id": 5,
     "name": "Meemm",
-    "address": "46607 John Wall Parkway"
+    "address": "46607 John Wall Parkway",
+    "type": "Gas"
   },
   {
     "id": 6,
     "name": "Aivee",
-    "address": "29459 Mayfield Park"
+    "address": "29459 Mayfield Park",
+    "type": "Fast"
   },
   {
     "id": 7,
     "name": "Flashset",
-    "address": "43 Hoard Point"
+    "address": "43 Hoard Point",
+    "type": "Cafe"
   },
   {
     "id": 8,
     "name": "Devpoint",
-    "address": "66604 Clemons Parkway"
+    "address": "66604 Clemons Parkway",
+    "type": "Gas"
   },
   {
     "id": 9,
     "name": "Talane",
-    "address": "069 International Center"
+    "address": "069 International Center",
+    "type": "Fast"
   },
   {
     "id": 10,
     "name": "Devbug",
-    "address": "25649 Milwaukee Alley"
+    "address": "25649 Milwaukee Alley",
+    "type": "Cafe"
   }
 ]
