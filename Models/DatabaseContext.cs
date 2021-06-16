@@ -14,6 +14,7 @@ namespace CercaCup.Models
         private static bool LOG_SQL_STATEMENTS_IN_DEVELOPMENT = false;
 
         // Add database tables here
+        public DbSet<Location> Locations { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -27,7 +28,7 @@ namespace CercaCup.Models
             if (!optionsBuilder.IsConfigured)
             {
                 var databaseURL = Environment.GetEnvironmentVariable("DATABASE_URL");
-                var defaultConnectionString = $"server=localhost;database={DEVELOPMENT_DATABASE_NAME}";
+                var defaultConnectionString = $"server=localhost;database={DEVELOPMENT_DATABASE_NAME};Username=foo;Password=secret";
 
                 var conn = databaseURL != null ? ConvertPostConnectionToConnectionString(databaseURL) : defaultConnectionString;
 

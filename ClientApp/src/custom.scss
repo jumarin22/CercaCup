@@ -19,12 +19,16 @@ h1 {
   text-align: center;
 }
 
-article {
-  display: flex;
-  justify-content: space-between;
-  border: thin black solid;
+.center {
+  text-align: center;
 }
 
 .top {
   display: flex;
+}
+
+article {
+  display: flex;
+  justify-content: space-between;
+  border: thin black solid;
 }

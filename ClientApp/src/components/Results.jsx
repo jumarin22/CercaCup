@@ -29,7 +29,7 @@ export function Results() {
           <p>{setEmoji(article.type)}</p>
           <p>{article.name}</p>
           <p>{article.address}</p>
-          <button>Delete</button>
+          <button>Edit</button>
         </article>
       ))}
     </>
