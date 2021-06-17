@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import { Header } from './components/Header'
 import { Form } from './components/Form'
 import { Results } from './components/Results'
+import { Map } from './components/Map'
 
 export function App() {
   return (
@@ -13,6 +14,7 @@ export function App() {
         <Route path="/Form" component={Form} />
         <Route path="/Results" component={Results} />
       </BrowserRouter>
+      <Map />
     </>
   )
 }
