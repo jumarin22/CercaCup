@@ -31,11 +31,29 @@ namespace CercaCup.Controllers
         // Returns a list of all your Locations
         //
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Location>>> GetLocations()
+        public async Task<ActionResult<IEnumerable<Location>>> GetLocations(string filter)
         {
             // Uses the database context in `_context` to request all of the Locations, sort
             // them by row id and return them as a JSON array.
-            return await _context.Locations.OrderBy(row => row.Id).ToListAsync();
+            switch (filter)
+            {
+                case "cgf": // Show all results (cafes, gas stations, fast foods).
+                    return await _context.Locations.OrderBy(row => row.Id).ToListAsync();
+                case "cf": // Don't show gas stations.
+                    return await _context.Locations.Where(location => !location.Type.Contains("Gas")).ToListAsync();
+                case "cg": // Don't show fast foods.
+                    return await _context.Locations.Where(location => !location.Type.Contains("Fast")).ToListAsync();
+                case "c": // Only show cafes. 
+                    return await _context.Locations.Where(location => location.Type.Contains("Cafe")).ToListAsync();
+                case "gf": // Don't show cafes. 
+                    return await _context.Locations.Where(location => !location.Type.Contains("Cafe")).ToListAsync();
+                case "g": // Only show gas stations. 
+                    return await _context.Locations.Where(location => location.Type.Contains("Gas")).ToListAsync();
+                case "f": // Only show fast foods. 
+                    return await _context.Locations.Where(location => location.Type.Contains("Fast")).ToListAsync();
+                default:
+                    return await _context.Locations.OrderBy(row => row.Id).ToListAsync();
+            }
         }
 
         // GET: api/Locations/5

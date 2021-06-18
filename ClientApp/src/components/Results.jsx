@@ -5,9 +5,9 @@ import { LocationList } from './LocationList'
 export function Results() {
   return (
     <>
-      <div className="top">
+      {/* <div className="top">
         ☕<Form />
-      </div>
+      </div> */}
       <LocationList />
     </>
   )

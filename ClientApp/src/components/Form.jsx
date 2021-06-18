@@ -13,7 +13,7 @@ export function Form() {
       <input type="text" placeholder="Enter zipcode" />
       <br />
       <br />
-      <input type="checkbox" />
+      <input type="checkbox" id="cafeCheck" />
       <label htmlFor="cafe">Cafe </label>
       <input type="checkbox" />
       <label htmlFor="gas">Gas Station </label>

@@ -4,9 +4,9 @@ import { useState } from 'react'
 export function Map() {
   //
   const [viewport, setViewport] = useState({
-    latitude: 27.77101804911986,
-    longitude: -82.66090611749074,
-    zoom: 9.8,
+    latitude: 25.70352,
+    longitude: -80.28997,
+    zoom: 13,
   })
 
   return (

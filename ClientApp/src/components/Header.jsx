@@ -1,4 +1,6 @@
 import { Form } from './Form'
+import { Map } from './Map'
+
 export function Header() {
   return (
     <>
@@ -8,6 +10,7 @@ export function Header() {
       <div className="center">
         <Form />
       </div>
+      <Map />
     </>
   )
 }
