@@ -15,7 +15,7 @@ export function LocationPage() {
   const [typeBool, setTypeBool] = useState(true)
   const [addressBool, setAddressBool] = useState(true)
 
-  // Variables for new object property values.
+  // Variables for new object property values to send through PUT.
   const [newName, setNewName] = useState('')
   const [newType, setNewType] = useState('')
   const [newAddress, setNewAddress] = useState('')
@@ -32,65 +32,61 @@ export function LocationPage() {
     loadInfo()
   }, [params.id])
 
+  // Conditional display for each property <div> based on boolean states.
   function showName() {
-    if (nameBool === true) {
+    if (nameBool) {
       return <p>{locationItem.name}</p>
     }
     return (
-      <form onSubmit={putName}>
+      <form onSubmit={patchName}>
         <input type="text" onChange={(e) => setNewName(e.target.value)} />
       </form>
     )
   }
   function showType() {
-    if (typeBool === true) {
+    if (typeBool) {
       return <p>{locationItem.type}</p>
     }
     return (
-      <form onSubmit={putType}>
+      <form onSubmit={patchType}>
         <input type="text" onChange={(e) => setNewType(e.target.value)} />
       </form>
     )
   }
   function showAddress() {
-    if (addressBool === true) {
+    if (addressBool) {
       return <p>{locationItem.address}</p>
     }
     return (
-      <form onSubmit={putAddress}>
+      <form onSubmit={patchAddress}>
         <input type="text" onChange={(e) => setNewAddress(e.target.value)} />
       </form>
     )
   }
 
-  async function putName(e) {
+  // PATCHes
+  async function patchName(e) {
     e.preventDefault()
-    await axios.put(`/api/Locations/${params.id}`, {
+    await axios.patch(`/api/Locations/${params.id}`, {
       id: params.id,
       name: newName,
-      type: locationItem.type,
-      address: locationItem.address,
     })
     setNameBool(true)
     loadInfo()
   }
-  async function putType(e) {
+  async function patchType(e) {
     e.preventDefault()
-    await axios.put(`/api/Locations/${params.id}`, {
+    await axios.patch(`/api/Locations/${params.id}`, {
       id: params.id,
-      name: locationItem.name,
       type: newType,
-      address: locationItem.address,
     })
     setTypeBool(true)
     loadInfo()
   }
-  async function putAddress(e) {
+  async function patchAddress(e) {
     e.preventDefault()
-    await axios.put(`/api/Locations/${params.id}`, {
+    await axios.patch(`/api/Locations/${params.id}`, {
       id: params.id,
-      name: locationItem.name,
-      type: locationItem.type,
       address: newAddress,
     })
     setAddressBool(true)
