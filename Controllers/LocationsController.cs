@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CercaCup.Models;
+using System.Reflection;
 
 namespace CercaCup.Controllers
 {
@@ -129,6 +130,59 @@ namespace CercaCup.Controllers
             // Return a copy of the updated data
             return Ok(location);
         }
+
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchLocation(int id, Location location)
+        {
+            // If the ID in the URL does not match the ID in the supplied request body, return a bad request
+            if (id != location.Id)
+            {
+                return BadRequest();
+            }
+
+            var locationEntity = _context.Entry(location);
+
+            // Tell the database to consider everything in location to be _updated_ values. When
+            // the save happens the database will _replace_ the values in the database with the ones from location
+            _context.Entry(location).State = EntityState.Modified;
+
+            Type locationType = typeof(Location);
+            PropertyInfo[] properties = locationType.GetProperties();
+            foreach (PropertyInfo property in properties)
+            {
+                if (property.GetValue(location, null) == null)
+                {
+                    locationEntity.Property(property.Name).IsModified = false;
+                }
+            }
+
+            try
+            {
+                // Try to save these changes.
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                // Ooops, looks like there was an error, so check to see if the record we were
+                // updating no longer exists.
+                if (!LocationExists(id))
+                {
+                    // If the record we tried to update was already deleted by someone else,
+                    // return a `404` not found
+                    return NotFound();
+                }
+                else
+                {
+                    // Otherwise throw the error back, which will cause the request to fail
+                    // and generate an error to the client.
+                    throw;
+                }
+            }
+
+            // Return a copy of the updated data
+            return Ok(location);
+        }
+
 
         // POST: api/Locations
         //
