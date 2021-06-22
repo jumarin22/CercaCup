@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 
 export function LocationList() {
   const [locations, setLocations] = useState([])
   const [filter, setFilter] = useState('')
+  const history = useHistory()
 
   useEffect(() => {
     async function loadLocations() {
@@ -87,7 +89,7 @@ export function LocationList() {
           <p>{setEmoji(location.type)}</p>
           <p>{location.name}</p>
           <p>{location.address}</p>
-          <button>Edit</button>
+          <Link to={`/${location.id}`}>edit</Link>
         </article>
       ))}
     </>
