@@ -5,11 +5,11 @@ export function Form() {
 
   function handleResults(e) {
     e.preventDefault()
-    history.push('/Results')
+    history.push('/List')
   }
 
   return (
-    <form onSubmit={handleResults}>
+    <form className="faux" onSubmit={handleResults}>
       <input type="text" placeholder="Enter zipcode" />
       <br />
       <br />

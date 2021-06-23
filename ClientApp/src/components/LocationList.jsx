@@ -55,12 +55,15 @@ export function LocationList() {
   }
 
   return (
-    <>
+    <div className="list-page">
       <form
+        className="list-form"
         onSubmit={(e) => {
           handleSubmit(e)
         }}
       >
+        <p>Zip:</p>
+        <input type="text" className="list-text" value="33143" />
         <input
           type="checkbox"
           id="cafe"
@@ -82,16 +85,18 @@ export function LocationList() {
           onChange={handleFastChange}
         />
         <label htmlFor="fast">Fast Food </label>
-        <input type="submit" value="Submit"></input>
+        <input type="submit" className="list-submit" value="Submit"></input>
       </form>
       {locations.map((location) => (
         <article key={location.id}>
-          <p>{setEmoji(location.type)}</p>
+          <p className="list-emoji">{setEmoji(location.type)}</p>
           <p>{location.name}</p>
           <p>{location.address}</p>
-          <Link to={`/${location.id}`}>edit</Link>
+          <div className="list-link">
+            <Link to={`/List/${location.id}`}>View</Link>
+          </div>
         </article>
       ))}
-    </>
+    </div>
   )
 }

@@ -15,7 +15,7 @@ export function LocationPage() {
   const [typeBool, setTypeBool] = useState(true)
   const [addressBool, setAddressBool] = useState(true)
 
-  // Variables for new object property values to send through PUT.
+  // Variables for new locationItem property values to send through PATCH.
   const [newName, setNewName] = useState('')
   const [newType, setNewType] = useState('')
   const [newAddress, setNewAddress] = useState('')
@@ -32,7 +32,7 @@ export function LocationPage() {
     loadInfo()
   }, [params.id])
 
-  // Conditional display for each property <div> based on boolean states.
+  // Conditional display for each property <div> based on boolean state.
   function showName() {
     if (nameBool) {
       return <p>{locationItem.name}</p>
