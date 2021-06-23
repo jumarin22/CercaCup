@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useState } from 'react'
-import { useHistory } from 'react-router'
+import { useHistory, Link } from 'react-router-dom'
 
 export function CreateLocation() {
   const [newLocName, setNewLocName] = useState('')
@@ -22,30 +22,35 @@ export function CreateLocation() {
   }
 
   return (
-    <form onSubmit={handleCreateNewLoc}>
-      <p>Name: </p>
-      <input
-        type="text"
-        id="new-loc-name"
-        value={newLocName}
-        onChange={(e) => setNewLocName(e.target.value)}
-      ></input>
-      <p>Type: </p>
-      <input
-        type="text"
-        id="new-loc-type"
-        value={newLocType}
-        onChange={(e) => setNewLocType(e.target.value)}
-      ></input>
-      <p>Address: </p>
-      <input
-        type="text"
-        id="new-loc-address"
-        value={newLocAddress}
-        onChange={(e) => setNewLocAddress(e.target.value)}
-      ></input>
-      <br />
-      <input type="submit" value="Create!" />
-    </form>
+    <div className="create-page">
+      <form onSubmit={handleCreateNewLoc}>
+        <h2>Name: </h2>
+        <input
+          type="text"
+          id="new-loc-name"
+          value={newLocName}
+          onChange={(e) => setNewLocName(e.target.value)}
+        ></input>
+        <h2>Type: </h2>
+        <input
+          type="text"
+          id="new-loc-type"
+          value={newLocType}
+          onChange={(e) => setNewLocType(e.target.value)}
+        ></input>
+        <h2>Address: </h2>
+        <input
+          type="text"
+          id="new-loc-address"
+          value={newLocAddress}
+          onChange={(e) => setNewLocAddress(e.target.value)}
+        ></input>
+        <br />
+        <input type="submit" value="Create!" />
+      </form>
+      <div className="back-to-list">
+        <Link to={'/List'}>&#8592; Back to List</Link>
+      </div>
+    </div>
   )
 }

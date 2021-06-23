@@ -10,7 +10,11 @@ export function Header() {
       <div className="center">
         <Form />
       </div>
-      <Map />
+      <div className="bottom">
+        <div className="header-map">
+          <Map />
+        </div>
+      </div>
     </>
   )
 }

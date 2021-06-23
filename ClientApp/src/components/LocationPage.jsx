@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useHistory, useParams } from 'react-router'
+import { useHistory, useParams, Link } from 'react-router-dom'
+import { Map } from './Map'
 
 export function LocationPage() {
   const history = useHistory()
@@ -35,7 +36,7 @@ export function LocationPage() {
   // Conditional display for each property <div> based on boolean state.
   function showName() {
     if (nameBool) {
-      return <p>{locationItem.name}</p>
+      return `${locationItem.name}`
     }
     return (
       <form onSubmit={patchName}>
@@ -45,7 +46,7 @@ export function LocationPage() {
   }
   function showType() {
     if (typeBool) {
-      return <p>{locationItem.type}</p>
+      return `${locationItem.type}`
     }
     return (
       <form onSubmit={patchType}>
@@ -55,7 +56,7 @@ export function LocationPage() {
   }
   function showAddress() {
     if (addressBool) {
-      return <p>{locationItem.address}</p>
+      return `${locationItem.address}`
     }
     return (
       <form onSubmit={patchAddress}>
@@ -94,13 +95,27 @@ export function LocationPage() {
   }
 
   return (
-    <>
-      <div className="nameDiv">{showName()}</div>
-      <button onClick={() => setNameBool(false)}>edit name</button>
-      <div className="typeDiv">{showType()}</div>
-      <button onClick={() => setTypeBool(false)}>edit type</button>
-      <div className="addressDiv">{showAddress()}</div>
-      <button onClick={() => setAddressBool(false)}>edit address</button>
-    </>
+    <div className="location-page">
+      <section className="edit-location">
+        <div className="edit-field">
+          <h2>Name: </h2>
+          <p onClick={() => setNameBool(false)}>{showName()}</p>
+        </div>
+        <div className="edit-field">
+          <h2>Type: </h2>
+          <p onClick={() => setTypeBool(false)}>{showType()}</p>
+        </div>
+        <div className="edit-field">
+          <h2>Address: </h2>
+          <p onClick={() => setAddressBool(false)}>{showAddress()}</p>
+        </div>
+        <div className="back-to-list">
+          <Link to={'/List'}>&#8592; Back to List</Link>
+        </div>
+      </section>
+      <div className="map-div">
+        <Map />
+      </div>
+    </div>
   )
 }

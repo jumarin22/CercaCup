@@ -62,30 +62,41 @@ export function LocationList() {
           handleSubmit(e)
         }}
       >
-        <p>Zip:</p>
-        <input type="text" className="list-text" value="33143" />
-        <input
-          type="checkbox"
-          id="cafe"
-          checked={isCafeChecked}
-          onChange={handleCafeChange}
-        />
-        <label htmlFor="cafe">Cafe </label>
-        <input
-          type="checkbox"
-          id="gas"
-          checked={isGasChecked}
-          onChange={handleGasChange}
-        />
-        <label htmlFor="gas">Gas Station </label>
-        <input
-          type="checkbox"
-          id="fast"
-          checked={isFastChecked}
-          onChange={handleFastChange}
-        />
-        <label htmlFor="fast">Fast Food </label>
-        <input type="submit" className="list-submit" value="Submit"></input>
+        <div className="text-div">
+          <label htmlFor="text-input">Zip:</label>
+          <input
+            type="text"
+            className="list-text"
+            id="text-input"
+            value="33143"
+          />
+        </div>
+        <div className="check-div">
+          <input
+            type="checkbox"
+            id="cafe"
+            checked={isCafeChecked}
+            onChange={handleCafeChange}
+          />
+          <label htmlFor="cafe">Cafe </label>
+          <input
+            type="checkbox"
+            id="gas"
+            checked={isGasChecked}
+            onChange={handleGasChange}
+          />
+          <label htmlFor="gas">Gas Station </label>
+          <input
+            type="checkbox"
+            id="fast"
+            checked={isFastChecked}
+            onChange={handleFastChange}
+          />
+          <label htmlFor="fast">Fast Food </label>
+          <div className="submit-div">
+            <input type="submit" className="list-submit" value="Submit"></input>
+          </div>
+        </div>
       </form>
       {locations.map((location) => (
         <article key={location.id}>
@@ -97,6 +108,9 @@ export function LocationList() {
           </div>
         </article>
       ))}
+      <div className="create-link">
+        <Link to={'/Create'}>+ Add New Location</Link>
+      </div>
     </div>
   )
 }

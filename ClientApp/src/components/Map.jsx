@@ -15,8 +15,8 @@ export function Map() {
         {...viewport}
         style={{ position: 'absolute' }}
         onViewportChange={setViewport}
-        width="100%"
-        height="100%"
+        width="90%"
+        height="50%"
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
       >
         <div style={{ position: 'absolute', left: 10 }}>

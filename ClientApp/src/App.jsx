@@ -14,8 +14,8 @@ export function App() {
         <Route exact path="/" component={Header} />
         <Route exact path="/Form" component={Form} />
         <Route exact path="/List" component={LocationList} />
-        <Route path="/List/:id" component={LocationPage} />
         <Route exact path="/Create" component={CreateLocation} />
+        <Route path="/List/:id" component={LocationPage} />
       </BrowserRouter>
     </>
   )
