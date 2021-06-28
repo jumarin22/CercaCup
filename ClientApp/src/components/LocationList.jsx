@@ -54,6 +54,10 @@ export function LocationList() {
     }
   }
 
+  function truncate(address) {
+    return address.split(',')[0]
+  }
+
   return (
     <div className="list-page">
       <form
@@ -102,7 +106,7 @@ export function LocationList() {
         <article key={location.id}>
           <p className="list-emoji">{setEmoji(location.type)}</p>
           <p>{location.name}</p>
-          <p>{location.address}</p>
+          <p>{truncate(location.address)}</p>
           <div className="list-link">
             <Link to={`/List/${location.id}`}>View</Link>
           </div>

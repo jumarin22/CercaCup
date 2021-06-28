@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace CercaCup.Models
 {
+
     public partial class DatabaseContext : DbContext
     {
         // Change this if you want to have a different database name in development
