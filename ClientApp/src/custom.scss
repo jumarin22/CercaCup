@@ -143,3 +143,8 @@ h2 {
 .back-to-list a {
   color: black;
 }
+
+// Map
+.mapboxgl-popup {
+  z-index: 1;
+}
