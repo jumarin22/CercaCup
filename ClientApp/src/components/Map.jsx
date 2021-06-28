@@ -1,7 +1,7 @@
 import ReactMapGL, { NavigationControl, Marker, Popup } from 'react-map-gl'
 import { useState, useEffect } from 'react'
 
-export function Map() {
+export function Map(props) {
   const [viewport, setViewport] = useState({
     latitude: 25.70352,
     longitude: -80.28997,
@@ -19,6 +19,21 @@ export function Map() {
     }
     loadLocations()
   }, [])
+
+  useEffect(
+    function () {
+      if (props.lat && props.lng) {
+        setViewport({
+          ...viewport,
+          latitude: props.lat,
+          longitude: props.lng,
+          zoom: 15,
+        })
+      }
+    },
+    [props.lat, props.lng]
+  )
+
   const [selectedMapLocation, setSelectedMapLocation] = useState(null)
 
   function setEmoji(type) {

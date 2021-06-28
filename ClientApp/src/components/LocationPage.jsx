@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useHistory, useParams, Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { Map } from './Map'
 
 export function LocationPage() {
-  const history = useHistory()
   const [locationItem, setLocationItem] = useState({
     id: undefined,
     name: '',
@@ -114,7 +113,7 @@ export function LocationPage() {
         </div>
       </section>
       <div className="map-div">
-        <Map />
+        <Map lat={locationItem.latitude} lng={locationItem.longitude} />
       </div>
     </div>
   )
