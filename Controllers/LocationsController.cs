@@ -187,7 +187,6 @@ namespace CercaCup.Controllers
             return Ok(location);
         }
 
-
         // POST: api/Locations
         //
         // Creates a new location in the database.

@@ -41,7 +41,7 @@ export function LocationPage() {
       <form onSubmit={patchName}>
         <input
           type="text"
-          onChange={(e) => setNewName(locationItem.name)}
+          onChange={(e) => setNewName(e.target.value)}
           placeholder={locationItem.name}
         />
       </form>
@@ -80,10 +80,6 @@ export function LocationPage() {
   // PATCHes
   async function patchName(e) {
     e.preventDefault()
-    if (e.target.value === undefined) {
-      setNameBool(true)
-      return
-    }
     await axios.patch(`/api/Locations/${params.id}`, {
       id: params.id,
       name: newName,
@@ -93,10 +89,6 @@ export function LocationPage() {
   }
   async function patchType(e) {
     e.preventDefault()
-    if (e.target.value === undefined) {
-      setTypeBool(true)
-      return
-    }
     await axios.patch(`/api/Locations/${params.id}`, {
       id: params.id,
       type: newType,
@@ -106,10 +98,6 @@ export function LocationPage() {
   }
   async function patchAddress(e) {
     e.preventDefault()
-    if (e.target.value === undefined) {
-      setAddressBool(true)
-      return
-    }
     await axios.patch(`/api/Locations/${params.id}`, {
       id: params.id,
       address: newAddress,
