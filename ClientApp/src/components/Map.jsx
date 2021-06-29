@@ -1,5 +1,6 @@
 import ReactMapGL, { NavigationControl, Marker, Popup } from 'react-map-gl'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 export function Map(props) {
   const [viewport, setViewport] = useState({
@@ -10,7 +11,7 @@ export function Map(props) {
   const [locations, setLocations] = useState([])
   useEffect(() => {
     async function loadLocations() {
-      const response = await fetch(`/api/Locations`)
+      const response = await fetch(`/api/Locations?filter=${props.code}`)
 
       if (response.ok) {
         const json = await response.json()
@@ -18,7 +19,7 @@ export function Map(props) {
       }
     }
     loadLocations()
-  }, [])
+  }, [props.code])
 
   useEffect(
     function () {
@@ -48,6 +49,10 @@ export function Map(props) {
     }
   }
 
+  function truncate(address) {
+    return address.split(',')[0]
+  }
+
   return (
     <section className="map">
       <ReactMapGL
@@ -71,9 +76,11 @@ export function Map(props) {
             onClose={() => setSelectedMapLocation(null)}
             offsetTop={-5}
           >
-            <div>
-              <p>{selectedMapLocation.name}</p>
-              <p>{selectedMapLocation.description}</p>
+            <div className="popup">
+              <Link to={`/List/${selectedMapLocation.id}`}>
+                {selectedMapLocation.name}
+              </Link>
+              <p>{truncate(selectedMapLocation.address)}</p>
             </div>
           </Popup>
         ) : null}

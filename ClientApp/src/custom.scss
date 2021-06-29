@@ -1,3 +1,4 @@
+// Colors used:
 // 6e0d25 burgundy
 // ffffb3 white brown
 // dcab6b light brown
@@ -130,7 +131,7 @@ h2 {
 .edit-field {
   display: flex;
   align-items: baseline;
-  line-height: 0.5rem;
+  line-height: 1rem;
 }
 
 // Create
@@ -147,4 +148,10 @@ h2 {
 // Map
 .mapboxgl-popup {
   z-index: 1;
+}
+.popup {
+  margin-right: 1rem;
+}
+.popup a {
+  color: #6e0d25;
 }

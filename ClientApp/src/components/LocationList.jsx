@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export function LocationList() {
   const [locations, setLocations] = useState([])
   const [filter, setFilter] = useState('')
-  const history = useHistory()
 
   useEffect(() => {
     async function loadLocations() {
