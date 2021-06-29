@@ -57,6 +57,10 @@ export function LocationList() {
     return address.split(',')[0]
   }
 
+  function doNothing(e) {
+    return
+  }
+
   return (
     <div className="list-page">
       <form
@@ -72,6 +76,7 @@ export function LocationList() {
             className="list-text"
             id="text-input"
             value="33143"
+            onChange={doNothing}
           />
         </div>
         <div className="check-div">

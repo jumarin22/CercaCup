@@ -50,6 +50,9 @@ h1 {
 .text-div {
   text-align: center;
 }
+.text-div label {
+  margin-right: 1rem;
+}
 .list-text {
   margin-bottom: 1rem;
   border-radius: 0.5rem;
@@ -58,6 +61,7 @@ h1 {
   padding: 0.3rem;
   background-color: #dcab6b;
   text-align: right;
+  max-width: 20%;
 }
 .check-div {
   text-align: center;
@@ -114,6 +118,11 @@ a {
 }
 
 // LocationPage
+.instruct {
+  text-align: center;
+  margin: 0;
+  color: #774e24;
+}
 .location-page {
   display: flex-wrap;
   margin: 1rem;
@@ -131,18 +140,32 @@ h2 {
 .edit-field {
   display: flex;
   align-items: baseline;
+  line-height: 0.5rem;
+}
+.edit-field-address {
+  display: flex;
+  align-items: baseline;
   line-height: 1rem;
+}
+.patch-address {
+  max-width: 80%;
 }
 
 // Create
 .create-page {
   margin: 1rem;
 }
+.create-page h2 {
+  margin-bottom: 0.5rem;
+}
+.create-button {
+  margin-top: 1rem;
+}
 .back-to-list {
   margin-top: 1rem;
 }
 .back-to-list a {
-  color: black;
+  color: #774e24;
 }
 
 // Map

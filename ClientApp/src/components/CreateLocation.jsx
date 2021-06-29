@@ -10,6 +10,10 @@ export function CreateLocation() {
 
   async function handleCreateNewLoc(e) {
     e.preventDefault()
+    if (newLocName === '' || newLocType === '' || newLocAddress === '') {
+      alert('Fields cannot be empty')
+      return
+    }
     const response = await axios.post(`/api/Locations/`, {
       name: newLocName,
       type: newLocType,
@@ -30,23 +34,24 @@ export function CreateLocation() {
           id="new-loc-name"
           value={newLocName}
           onChange={(e) => setNewLocName(e.target.value)}
-        ></input>
+        />
         <h2>Type: </h2>
         <input
           type="text"
           id="new-loc-type"
           value={newLocType}
           onChange={(e) => setNewLocType(e.target.value)}
-        ></input>
+          placeholder="Cafe, Gas Station, or Fast Food"
+        />
         <h2>Address: </h2>
         <input
           type="text"
           id="new-loc-address"
           value={newLocAddress}
           onChange={(e) => setNewLocAddress(e.target.value)}
-        ></input>
+        />
         <br />
-        <input type="submit" value="Create!" />
+        <input type="submit" value="Create!" className="create-button" />
       </form>
       <div className="back-to-list">
         <Link to={'/List'}>&#8592; Back to List</Link>

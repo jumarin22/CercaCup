@@ -39,7 +39,11 @@ export function LocationPage() {
     }
     return (
       <form onSubmit={patchName}>
-        <input type="text" onChange={(e) => setNewName(e.target.value)} />
+        <input
+          type="text"
+          onChange={(e) => setNewName(locationItem.name)}
+          placeholder={locationItem.name}
+        />
       </form>
     )
   }
@@ -49,7 +53,11 @@ export function LocationPage() {
     }
     return (
       <form onSubmit={patchType}>
-        <input type="text" onChange={(e) => setNewType(e.target.value)} />
+        <input
+          type="text"
+          onChange={(e) => setNewType(e.target.value)}
+          placeholder={locationItem.type}
+        />
       </form>
     )
   }
@@ -59,7 +67,12 @@ export function LocationPage() {
     }
     return (
       <form onSubmit={patchAddress}>
-        <input type="text" onChange={(e) => setNewAddress(e.target.value)} />
+        <input
+          className="patch-address"
+          type="text"
+          onChange={(e) => setNewAddress(e.target.value)}
+          placeholder={locationItem.address}
+        />
       </form>
     )
   }
@@ -67,6 +80,10 @@ export function LocationPage() {
   // PATCHes
   async function patchName(e) {
     e.preventDefault()
+    if (e.target.value === undefined) {
+      setNameBool(true)
+      return
+    }
     await axios.patch(`/api/Locations/${params.id}`, {
       id: params.id,
       name: newName,
@@ -76,6 +93,10 @@ export function LocationPage() {
   }
   async function patchType(e) {
     e.preventDefault()
+    if (e.target.value === undefined) {
+      setTypeBool(true)
+      return
+    }
     await axios.patch(`/api/Locations/${params.id}`, {
       id: params.id,
       type: newType,
@@ -85,6 +106,10 @@ export function LocationPage() {
   }
   async function patchAddress(e) {
     e.preventDefault()
+    if (e.target.value === undefined) {
+      setAddressBool(true)
+      return
+    }
     await axios.patch(`/api/Locations/${params.id}`, {
       id: params.id,
       address: newAddress,
@@ -95,18 +120,19 @@ export function LocationPage() {
 
   return (
     <div className="location-page">
+      <p className="instruct">(click info to edit)</p>
       <section className="edit-location">
         <div className="edit-field">
           <h2>Name: </h2>
-          <p onClick={() => setNameBool(false)}>{showName()}</p>
+          <div onClick={() => setNameBool(false)}>{showName()}</div>
         </div>
         <div className="edit-field">
           <h2>Type: </h2>
-          <p onClick={() => setTypeBool(false)}>{showType()}</p>
+          <div onClick={() => setTypeBool(false)}>{showType()}</div>
         </div>
-        <div className="edit-field">
+        <div className="edit-field-address">
           <h2>Address: </h2>
-          <p onClick={() => setAddressBool(false)}>{showAddress()}</p>
+          <div onClick={() => setAddressBool(false)}>{showAddress()}</div>
         </div>
         <div className="back-to-list">
           <Link to={'/List'}>&#8592; Back to List</Link>
