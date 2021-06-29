@@ -37,7 +37,8 @@ h1 {
 
 // List
 .list-page {
-  margin: 1rem;
+  margin: auto;
+  max-width: 500px;
 }
 .list-form {
   margin: 0.5rem;
@@ -102,6 +103,7 @@ article p {
 }
 .list-emoji {
   width: 10%;
+  font-size: 2rem;
 }
 a {
   color: #ffffb3;
@@ -111,7 +113,7 @@ a {
 }
 .create-link {
   text-align: center;
-  margin-top: 1.5rem;
+  margin: 1rem;
 }
 .create-link a {
   color: black;

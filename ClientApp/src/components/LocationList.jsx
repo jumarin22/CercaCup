@@ -105,6 +105,9 @@ export function LocationList() {
             <input type="submit" className="list-submit" value="Submit"></input>
           </div>
         </div>
+        <div className="create-link">
+          <Link to={'/Create'}>+ Add New Location</Link>
+        </div>
       </form>
       {locations.map((location) => (
         <article key={location.id}>
@@ -116,9 +119,6 @@ export function LocationList() {
           </div>
         </article>
       ))}
-      <div className="create-link">
-        <Link to={'/Create'}>+ Add New Location</Link>
-      </div>
     </div>
   )
 }
