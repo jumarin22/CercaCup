@@ -9,6 +9,8 @@ export function LocationPage() {
     name: '',
     type: '',
     address: '',
+    latitude: '',
+    longitude: '',
   })
   // Boolean states for displaying static object properties or editable textfields.
   const [nameBool, setNameBool] = useState(true)
