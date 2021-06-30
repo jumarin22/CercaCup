@@ -39,7 +39,7 @@ h1 {
   margin-bottom: 1rem;
 }
 .faux-input {
-  border: none;
+  border: thin solid #6e0d25;
   padding: 0.3rem;
   background-color: #dcab6b;
   text-align: right;
@@ -73,7 +73,7 @@ h1 {
 .list-text {
   margin-bottom: 1rem;
   max-width: fit-content;
-  border: none;
+  border: thin solid #6e0d25;
   padding: 0.3rem;
   background-color: #dcab6b;
   text-align: center;
@@ -177,6 +177,8 @@ h2 {
 }
 .patch-field {
   max-width: 80%;
+  background-color: #dcab6b;
+  border: thin solid #6e0d25;
 }
 
 // Create
@@ -188,7 +190,7 @@ h2 {
 }
 .create-input {
   background-color: #dcab6b;
-  border: none;
+  border: thin solid #6e0d25;
 }
 .create-button {
   margin-top: 1rem;
