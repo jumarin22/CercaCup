@@ -30,6 +30,7 @@ export function CreateLocation() {
       <form onSubmit={handleCreateNewLoc}>
         <h2>Name: </h2>
         <input
+          className="create-input"
           type="text"
           id="new-loc-name"
           value={newLocName}
@@ -37,6 +38,7 @@ export function CreateLocation() {
         />
         <h2>Type: </h2>
         <input
+          className="create-input"
           type="text"
           id="new-loc-type"
           value={newLocType}
@@ -45,6 +47,7 @@ export function CreateLocation() {
         />
         <h2>Address: </h2>
         <input
+          className="create-input"
           type="text"
           id="new-loc-address"
           value={newLocAddress}

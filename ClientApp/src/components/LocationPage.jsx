@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import { useParams, Link } from 'react-router-dom'
 import { Map } from './Map'
+import axios from 'axios'
 
 export function LocationPage() {
   const [locationItem, setLocationItem] = useState({
@@ -40,6 +40,8 @@ export function LocationPage() {
     return (
       <form onSubmit={patchName}>
         <input
+          className="patch-field"
+          id="show-name"
           type="text"
           onChange={(e) => setNewName(e.target.value)}
           placeholder={locationItem.name}
@@ -54,6 +56,7 @@ export function LocationPage() {
     return (
       <form onSubmit={patchType}>
         <input
+          className="patch-field"
           type="text"
           onChange={(e) => setNewType(e.target.value)}
           placeholder={locationItem.type}
@@ -68,7 +71,7 @@ export function LocationPage() {
     return (
       <form onSubmit={patchAddress}>
         <input
-          className="patch-address"
+          className="patch-field"
           type="text"
           onChange={(e) => setNewAddress(e.target.value)}
           placeholder={locationItem.address}
@@ -110,17 +113,20 @@ export function LocationPage() {
     <div className="location-page">
       <p className="instruct">(click info to edit)</p>
       <section className="edit-location">
-        <div className="edit-field">
-          <h2>Name: </h2>
-          <div onClick={() => setNameBool(false)}>{showName()}</div>
+        <div className="edit-field" onClick={() => setNameBool(false)}>
+          <h2>Name:&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+          <div>{showName()}</div>
         </div>
-        <div className="edit-field">
-          <h2>Type: </h2>
-          <div onClick={() => setTypeBool(false)}>{showType()}</div>
+        <div className="edit-field" onClick={() => setTypeBool(false)}>
+          <h2>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+          <div>{showType()}</div>
         </div>
-        <div className="edit-field-address">
+        <div
+          className="edit-field-address"
+          onClick={() => setAddressBool(false)}
+        >
           <h2>Address: </h2>
-          <div onClick={() => setAddressBool(false)}>{showAddress()}</div>
+          <div>{showAddress()}</div>
         </div>
         <div className="back-to-list">
           <Link to={'/List'}>&#8592; Back to List</Link>

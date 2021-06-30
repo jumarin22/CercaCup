@@ -3,12 +3,14 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 export function Map(props) {
+  const [locations, setLocations] = useState([])
+  const [selectedMapLocation, setSelectedMapLocation] = useState(null)
   const [viewport, setViewport] = useState({
     latitude: 25.70352,
     longitude: -80.28997,
     zoom: 13,
   })
-  const [locations, setLocations] = useState([])
+
   useEffect(() => {
     async function loadLocations() {
       const response = await fetch(`/api/Locations?filter=${props.code}`)
@@ -35,8 +37,6 @@ export function Map(props) {
     [props.lat, props.lng]
   )
 
-  const [selectedMapLocation, setSelectedMapLocation] = useState(null)
-
   function setEmoji(type) {
     if (type.toLowerCase().includes('cafe')) {
       return '☕'
@@ -61,12 +61,12 @@ export function Map(props) {
         onViewportChange={setViewport}
         width="90%"
         height="50%"
+        mapStyle="mapbox://styles/mapbox/streets-v11"
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
       >
-        <div style={{ position: 'absolute', left: 10 }}>
+        <div style={{ position: 'absolute', left: 10, top: 10 }}>
           <NavigationControl />
         </div>
-
         {selectedMapLocation ? (
           <Popup
             latitude={selectedMapLocation.latitude}
@@ -92,6 +92,7 @@ export function Map(props) {
             longitude={location.longitude}
           >
             <span
+              className="span-emoji"
               role="img"
               aria-label="coffee"
               onClick={() => setSelectedMapLocation(location)}

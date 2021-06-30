@@ -2,16 +2,18 @@ import { Map } from './Map'
 import { useHistory } from 'react-router'
 import { useState } from 'react'
 
-export function Header() {
+export function FrontPage() {
   const history = useHistory()
+  const [filter, setFilter] = useState('')
+
+  // Note: The ZIP code search is fake and just redirects to the LocationList page regardless of input.
   function handleResults(e) {
     e.preventDefault()
     history.push('/List')
   }
 
-  const [filter, setFilter] = useState('')
-
-  const handleSubmit = (e) => {
+  // Checkbox filter will toggle appropriate map icons on/off by sending new GET string to Map component.
+  const handleFilter = (e) => {
     e.preventDefault()
     if (isCafeChecked && !isGasChecked && isFastChecked) setFilter('cf')
     else if (isCafeChecked && isGasChecked && !isFastChecked) setFilter('cg')
@@ -36,15 +38,19 @@ export function Header() {
   }
 
   return (
-    <>
+    <div className="front-page">
       <h1 className="cup">☕</h1>
-      <h1>CercaCup</h1>
+      <h1 className="title">Cerca Cup</h1>
       <p className="subtitle">Find the closest cup of coffee near you!</p>
       <div className="center">
         <form className="faux" onSubmit={handleResults}>
-          <input type="text" placeholder="Enter zipcode" />
+          <input
+            type="text"
+            placeholder="Enter ZIP Code"
+            className="faux-input"
+          />
         </form>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleFilter}>
           <div className="check-div">
             <input
               type="checkbox"
@@ -69,8 +75,8 @@ export function Header() {
             <label htmlFor="fast">Fast Food </label>
             <div className="submit-div">
               <input
-                type="submit"
                 className="list-submit"
+                type="submit"
                 value="Filter!"
               ></input>
             </div>
@@ -82,6 +88,6 @@ export function Header() {
           <Map code={filter} />
         </div>
       </div>
-    </>
+    </div>
   )
 }

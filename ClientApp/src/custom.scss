@@ -19,17 +19,32 @@ body {
   background-color: #ffffb3;
 }
 
-// Header
+// Front Page
+.front-page {
+  margin-left: 5%;
+}
 .cup {
   text-shadow: hsl(20, 55%, 3%) 0.05em 0.05em;
+  margin-bottom: 0.5rem;
+}
+.title {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 h1 {
   text-align: center;
   color: #6e0d25;
-  // text-shadow: hsl(20, 55%, 3%) 0.05em 0.05em;
 }
 .faux {
   margin-bottom: 1rem;
+}
+.faux-input {
+  border: none;
+  padding: 0.3rem;
+  background-color: #dcab6b;
+  text-align: right;
+  max-width: 30%;
+  text-align: center;
 }
 .bottom {
   margin-left: 1rem;
@@ -39,6 +54,7 @@ h1 {
 .list-page {
   margin: auto;
   max-width: 500px;
+  width: fit-content;
 }
 .list-form {
   margin: 0.5rem;
@@ -56,24 +72,30 @@ h1 {
 }
 .list-text {
   margin-bottom: 1rem;
-  border-radius: 0.5rem;
   max-width: fit-content;
   border: none;
   padding: 0.3rem;
   background-color: #dcab6b;
-  text-align: right;
+  text-align: center;
   max-width: 20%;
 }
 .check-div {
   text-align: center;
+  margin-bottom: 0;
 }
 .submit-div {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   margin-bottom: 1rem;
 }
 .list-submit {
   text-align: center;
+  background-color: #6e0d25;
+  border: none;
+  color: #ffffb3;
+  padding: 0.3rem;
+  margin-top: 0;
+  box-shadow: hsl(345, 79%, 13%) 0.1rem 0.1rem;
 }
 
 .subtitle {
@@ -90,13 +112,13 @@ h1 {
 article {
   display: flex;
   justify-content: space-evenly;
-  border-radius: 1rem;
+  margin: 1%;
   margin-bottom: 0.5rem;
   height: 3.9rem;
-  background-color: #6e0d25;
-  color: #dcab6b;
+  background-color: hsl(30, 54%, 39%);
   align-items: center;
-  text-shadow: black 0.05em 0.05em;
+  border: solid medium #6e0d25;
+  box-shadow: hsl(30, 54%, 13%) 0.3em 0.3em;
 }
 article p {
   width: 25%;
@@ -104,9 +126,11 @@ article p {
 .list-emoji {
   width: 10%;
   font-size: 2rem;
+  text-shadow: black 0.05rem 0.05rem;
 }
-a {
+article a {
   color: #ffffb3;
+  text-shadow: black 0.05rem 0.05rem;
 }
 #fast {
   background-color: red;
@@ -149,7 +173,7 @@ h2 {
   align-items: baseline;
   line-height: 1rem;
 }
-.patch-address {
+.patch-field {
   max-width: 80%;
 }
 
@@ -160,14 +184,22 @@ h2 {
 .create-page h2 {
   margin-bottom: 0.5rem;
 }
+.create-input {
+  background-color: #dcab6b;
+  border: none;
+}
 .create-button {
   margin-top: 1rem;
+  background-color: #6e0d25;
+  border: none;
+  color: #ffffb3;
+  box-shadow: black 0.1rem 0.1rem;
 }
 .back-to-list {
   margin-top: 1rem;
 }
 .back-to-list a {
-  color: #774e24;
+  color: black;
 }
 
 // Map
@@ -179,4 +211,12 @@ h2 {
 }
 .popup a {
   color: #6e0d25;
+}
+.span-emoji {
+  text-shadow: black 0.05em 0.05em;
+}
+@media screen and (max-width: 700px) {
+  .front-page {
+    margin-left: 0;
+  }
 }

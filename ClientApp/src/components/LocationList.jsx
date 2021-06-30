@@ -17,7 +17,8 @@ export function LocationList() {
     loadLocations()
   }, [filter])
 
-  const handleSubmit = (e) => {
+  // Filters list results.
+  const handleFilter = (e) => {
     e.preventDefault()
     if (isCafeChecked && !isGasChecked && isFastChecked) setFilter('cf')
     else if (isCafeChecked && isGasChecked && !isFastChecked) setFilter('cg')
@@ -28,6 +29,7 @@ export function LocationList() {
     else setFilter('cgf')
   }
 
+  //Checkbox states.
   const [isCafeChecked, setIsCafeChecked] = useState(true)
   const handleCafeChange = () => {
     setIsCafeChecked(!isCafeChecked)
@@ -41,6 +43,7 @@ export function LocationList() {
     setIsFastChecked(!isFastChecked)
   }
 
+  //Converts object property "Type" to emoji.
   function setEmoji(type) {
     if (type.toLowerCase().includes('cafe')) {
       return '☕'
@@ -53,10 +56,12 @@ export function LocationList() {
     }
   }
 
+  //Shortens object property "Address" string.
   function truncate(address) {
     return address.split(',')[0]
   }
 
+  // Avoids console error for faux ZIP code search
   function doNothing(e) {
     return
   }
@@ -66,14 +71,14 @@ export function LocationList() {
       <form
         className="list-form"
         onSubmit={(e) => {
-          handleSubmit(e)
+          handleFilter(e)
         }}
       >
         <div className="text-div">
           <label htmlFor="text-input">Zip:</label>
           <input
-            type="text"
             className="list-text"
+            type="text"
             id="text-input"
             value="33143"
             onChange={doNothing}
@@ -102,7 +107,11 @@ export function LocationList() {
           />
           <label htmlFor="fast">Fast Food </label>
           <div className="submit-div">
-            <input type="submit" className="list-submit" value="Submit"></input>
+            <input
+              type="submit"
+              className="list-submit"
+              value="Filter!"
+            ></input>
           </div>
         </div>
         <div className="create-link">
