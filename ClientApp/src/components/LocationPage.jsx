@@ -88,6 +88,8 @@ export function LocationPage() {
     await axios.patch(`/api/Locations/${params.id}`, {
       id: params.id,
       name: newName,
+      latitude: locationItem.latitude,
+      longitude: locationItem.longitude,
     })
     setNameBool(true)
     loadInfo()
@@ -97,6 +99,8 @@ export function LocationPage() {
     await axios.patch(`/api/Locations/${params.id}`, {
       id: params.id,
       type: newType,
+      latitude: locationItem.latitude,
+      longitude: locationItem.longitude,
     })
     setTypeBool(true)
     loadInfo()
@@ -106,6 +110,8 @@ export function LocationPage() {
     await axios.patch(`/api/Locations/${params.id}`, {
       id: params.id,
       address: newAddress,
+      latitude: locationItem.latitude,
+      longitude: locationItem.longitude,
     })
     setAddressBool(true)
     loadInfo()
