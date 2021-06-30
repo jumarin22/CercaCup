@@ -115,10 +115,12 @@ article {
   margin: 1%;
   margin-bottom: 0.5rem;
   height: 3.9rem;
-  background-color: hsl(30, 54%, 39%);
+  background-color: #6a381f;
   align-items: center;
   border: solid medium #6e0d25;
   box-shadow: hsl(30, 54%, 13%) 0.3em 0.3em;
+  color: #ffffb3;
+  text-shadow: black 0.05rem 0.05rem;
 }
 article p {
   width: 25%;
@@ -129,7 +131,7 @@ article p {
   text-shadow: black 0.05rem 0.05rem;
 }
 article a {
-  color: #ffffb3;
+  color: #dcab6b;
   text-shadow: black 0.05rem 0.05rem;
 }
 #fast {

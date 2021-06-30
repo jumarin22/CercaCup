@@ -75,7 +75,7 @@ export function LocationList() {
         }}
       >
         <div className="text-div">
-          <label htmlFor="text-input">Zip:</label>
+          <label htmlFor="text-input">ZIP Code:</label>
           <input
             className="list-text"
             type="text"
