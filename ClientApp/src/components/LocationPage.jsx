@@ -85,41 +85,70 @@ export function LocationPage() {
   // PATCHes
   async function patchName(e) {
     e.preventDefault()
-    await axios.patch(`/api/Locations/${params.id}`, {
-      id: params.id,
-      name: newName,
-      latitude: locationItem.latitude,
-      longitude: locationItem.longitude,
-    })
+    // If user enters an empty string, revert property to original value.
+    if (newName === '') {
+      await axios.patch(`/api/Locations/${params.id}`, {
+        id: params.id,
+        name: locationItem.name,
+        // Need to include latlongs or they reset to 0.
+        latitude: locationItem.latitude,
+        longitude: locationItem.longitude,
+      })
+    } else {
+      await axios.patch(`/api/Locations/${params.id}`, {
+        id: params.id,
+        name: newName,
+        latitude: locationItem.latitude,
+        longitude: locationItem.longitude,
+      })
+    }
     setNameBool(true)
     loadInfo()
   }
   async function patchType(e) {
     e.preventDefault()
-    await axios.patch(`/api/Locations/${params.id}`, {
-      id: params.id,
-      type: newType,
-      latitude: locationItem.latitude,
-      longitude: locationItem.longitude,
-    })
+    if (newType === '') {
+      await axios.patch(`/api/Locations/${params.id}`, {
+        id: params.id,
+        type: locationItem.type,
+        latitude: locationItem.latitude,
+        longitude: locationItem.longitude,
+      })
+    } else {
+      await axios.patch(`/api/Locations/${params.id}`, {
+        id: params.id,
+        type: newType,
+        latitude: locationItem.latitude,
+        longitude: locationItem.longitude,
+      })
+    }
     setTypeBool(true)
     loadInfo()
   }
   async function patchAddress(e) {
     e.preventDefault()
-    await axios.patch(`/api/Locations/${params.id}`, {
-      id: params.id,
-      address: newAddress,
-      latitude: locationItem.latitude,
-      longitude: locationItem.longitude,
-    })
+    if (newAddress === '') {
+      await axios.patch(`/api/Locations/${params.id}`, {
+        id: params.id,
+        address: locationItem.address,
+        latitude: locationItem.latitude,
+        longitude: locationItem.longitude,
+      })
+    } else {
+      await axios.patch(`/api/Locations/${params.id}`, {
+        id: params.id,
+        address: newAddress,
+        latitude: locationItem.latitude,
+        longitude: locationItem.longitude,
+      })
+    }
     setAddressBool(true)
     loadInfo()
   }
 
   return (
     <div className="location-page">
-      <p className="instruct">(click info to edit)</p>
+      <p className="instruct">(click info to edits)</p>
       <section className="edit-location">
         <div className="edit-field" onClick={() => setNameBool(false)}>
           <h2>Name:&nbsp;&nbsp;&nbsp;&nbsp;</h2>
