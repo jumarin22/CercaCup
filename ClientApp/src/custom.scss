@@ -167,17 +167,26 @@ h2 {
 .edit-field {
   display: flex;
   align-items: baseline;
-  line-height: 0.5rem;
+  line-height: 1rem;
 }
 .edit-field-address {
   display: flex;
   align-items: baseline;
-  line-height: 1rem;
+}
+.show {
+  background-color: #ffffb3;
+  margin-right: 1rem;
+  padding: 0.3rem;
+  border: thin solid #6e0d25;
+  width: 10rem;
 }
 .patch-field {
-  max-width: 80%;
-  background-color: #dcab6b;
-  border: thin solid #6e0d25;
+  max-width: 100%;
+  background-color: #ffffb3;
+  border: none;
+}
+.form-container {
+  max-width: 10rem;
 }
 
 // Create
@@ -200,6 +209,7 @@ h2 {
 }
 .back-to-list {
   margin-top: 1rem;
+  margin-bottom: 1.5rem;
 }
 .back-to-list a {
   color: black;

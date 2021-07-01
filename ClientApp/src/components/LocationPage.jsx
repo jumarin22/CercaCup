@@ -40,15 +40,17 @@ export function LocationPage() {
       return `${locationItem.name}`
     }
     return (
-      <form onSubmit={patchName}>
-        <input
-          className="patch-field"
-          id="show-name"
-          type="text"
-          onChange={(e) => setNewName(e.target.value)}
-          placeholder={locationItem.name}
-        />
-      </form>
+      <div className="form-container">
+        <form className="patch-form" onSubmit={patchName}>
+          <input
+            className="patch-field"
+            id="show-name"
+            type="text"
+            onChange={(e) => setNewName(e.target.value)}
+            placeholder={locationItem.name}
+          />
+        </form>
+      </div>
     )
   }
   function showType() {
@@ -56,14 +58,16 @@ export function LocationPage() {
       return `${locationItem.type}`
     }
     return (
-      <form onSubmit={patchType}>
-        <input
-          className="patch-field"
-          type="text"
-          onChange={(e) => setNewType(e.target.value)}
-          placeholder={locationItem.type}
-        />
-      </form>
+      <div className="form-container">
+        <form onSubmit={patchType}>
+          <input
+            className="patch-field"
+            type="text"
+            onChange={(e) => setNewType(e.target.value)}
+            placeholder={locationItem.type}
+          />
+        </form>
+      </div>
     )
   }
   function showAddress() {
@@ -71,14 +75,16 @@ export function LocationPage() {
       return `${locationItem.address}`
     }
     return (
-      <form onSubmit={patchAddress}>
-        <input
-          className="patch-field"
-          type="text"
-          onChange={(e) => setNewAddress(e.target.value)}
-          placeholder={locationItem.address}
-        />
-      </form>
+      <div className="form-container">
+        <form onSubmit={patchAddress}>
+          <input
+            className="patch-field"
+            type="text"
+            onChange={(e) => setNewAddress(e.target.value)}
+            placeholder={locationItem.address}
+          />
+        </form>
+      </div>
     )
   }
 
@@ -152,18 +158,18 @@ export function LocationPage() {
         <section className="edit-location">
           <div className="edit-field" onClick={() => setNameBool(false)}>
             <h2>Name:&nbsp;&nbsp;&nbsp;&nbsp;</h2>
-            <div>{showName()}</div>
+            <div className="show">{showName()}</div>
           </div>
           <div className="edit-field" onClick={() => setTypeBool(false)}>
             <h2>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
-            <div>{showType()}</div>
+            <div className="show">{showType()}</div>
           </div>
           <div
             className="edit-field-address"
             onClick={() => setAddressBool(false)}
           >
             <h2>Address: </h2>
-            <div>{showAddress()}</div>
+            <div className="show">{showAddress()}</div>
           </div>
           <div className="back-to-list">
             <Link to={'/List'}>&#8592; Back to List</Link>
