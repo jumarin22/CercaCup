@@ -147,31 +147,32 @@ export function LocationPage() {
   }
 
   return (
-    <div className="location-page">
-      <p className="instruct">(click info to edits)</p>
-      <section className="edit-location">
-        <div className="edit-field" onClick={() => setNameBool(false)}>
-          <h2>Name:&nbsp;&nbsp;&nbsp;&nbsp;</h2>
-          <div>{showName()}</div>
-        </div>
-        <div className="edit-field" onClick={() => setTypeBool(false)}>
-          <h2>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
-          <div>{showType()}</div>
-        </div>
-        <div
-          className="edit-field-address"
-          onClick={() => setAddressBool(false)}
-        >
-          <h2>Address: </h2>
-          <div>{showAddress()}</div>
-        </div>
-        <div className="back-to-list">
-          <Link to={'/List'}>&#8592; Back to List</Link>
-        </div>
-      </section>
+    <>
+      <div className="location-page">
+        <section className="edit-location">
+          <div className="edit-field" onClick={() => setNameBool(false)}>
+            <h2>Name:&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+            <div>{showName()}</div>
+          </div>
+          <div className="edit-field" onClick={() => setTypeBool(false)}>
+            <h2>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+            <div>{showType()}</div>
+          </div>
+          <div
+            className="edit-field-address"
+            onClick={() => setAddressBool(false)}
+          >
+            <h2>Address: </h2>
+            <div>{showAddress()}</div>
+          </div>
+          <div className="back-to-list">
+            <Link to={'/List'}>&#8592; Back to List</Link>
+          </div>
+        </section>
+      </div>
       <div className="map-div">
         <Map lat={locationItem.latitude} lng={locationItem.longitude} />
       </div>
-    </div>
+    </>
   )
 }
